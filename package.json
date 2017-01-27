@@ -1,0 +1,27 @@
+{
+  "name": "jsx-bem",
+  "version": "0.0.1",
+  "description": "BEM class name generator for babel-plugin-transform-jsx-bem",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ximik/jsx-bem.git"
+  },
+  "keywords": [
+    "bem",
+    "naming",
+    "class"
+  ],
+  "author": "Alex Tsokurov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ximik/jsx-bem/issues"
+  },
+  "homepage": "https://github.com/Ximik/jsx-bem#readme",
+  "devDependencies": {
+    "tap": "^9.0.3"
+  }
+}
