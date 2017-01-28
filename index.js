@@ -1,9 +1,12 @@
-module.exports = (opts = {}) => {
+"use strict"
+
+module.exports = (opts) => {
+  opts = opts || {};
   const sElement = ((separator) => (block, element) => element ? block + separator + element : block)(opts.elementSeparator || '__');
   const sModifier = ((separator) => (element, modifier) => element + separator + modifier)(opts.modSeparator || '--');
   const sModifierValue = ((separator) => (element, modifier, value) => sModifier(element, modifier) + separator + value)(opts.modValueSeparator || '-');
 
-  return (block = '', element, modifiers, mixins) => {
+  return (block, element, modifiers, mixins) => {
     element = sElement(block, element);
     let className = element;
 
