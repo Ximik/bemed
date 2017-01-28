@@ -2,22 +2,23 @@
 
 module.exports = (opts) => {
   opts = opts || {};
-  const sElement = ((separator) => (block, element) => element ? block + separator + element : block)(opts.elementSeparator || '__');
-  const sModifier = ((separator) => (element, modifier) => element + separator + modifier)(opts.modSeparator || '--');
-  const sModifierValue = ((separator) => (element, modifier, value) => sModifier(element, modifier) + separator + value)(opts.modValueSeparator || '-');
+  const separators = opts.separators || {};
+  const be = ((separator) => (block, element) => element ? block + separator + element : block)(separators.element || '__');
+  const bem = ((separator) => (element, modifier) => element + separator + modifier)(separators.modifier || '--');
+  const bemv = ((separator) => (element, modifier, value) => bem(element, modifier) + separator + value)(separators.value || '-');
 
-  return (block, element, modifiers, mixins) => {
-    element = sElement(block, element);
+  const build = (block, element, modifiers, mixins) => {
+    element = be(block, element);
     let className = element;
 
     switch (typeof modifiers) {
       case 'string':
-        className += ' ' + sModifier(element, modifiers);
+        className += ' ' + bem(element, modifiers);
         break;
       case 'object':
         if (Array.isArray(modifiers)) {
           for (let i = 0; i < modifiers.length; i++) {
-            className += ' ' + sModifier(element, modifiers[i]);
+            className += ' ' + bem(element, modifiers[i]);
           }
           break;
         }
@@ -26,11 +27,10 @@ module.exports = (opts) => {
           if (value === false) {
             continue;
           }
-          if (value === true) {
-            className += ' ' + sModifier(element, modifier);
-            continue;
+          className += ' ' + bem(element, modifier);
+          if (value !== true) {
+            className += ' ' + bemv(element, modifier, value);
           }
-          className += ' ' + sModifierValue(element, modifier, value);
         }
         break;
     }
@@ -55,4 +55,6 @@ module.exports = (opts) => {
     }
     return className;
   }
+
+  return { build, helpers: { be, bem, bemv } };
 };
