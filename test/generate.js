@@ -1,9 +1,9 @@
 "use strict"
 
 const tap = require('tap'),
-      build = require('../index')().build;
+      generate = require('../index')().generate;
 
-const check = (params, result) => tap.equal(build.apply(null, params), result);
+const check = (params, result) => tap.equal(generate.apply(null, params), result);
 
 check(
   [ 'block' ],

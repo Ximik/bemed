@@ -7,7 +7,7 @@ module.exports = (opts) => {
   const bem = ((separator) => (element, modifier) => element + separator + modifier)(separators.modifier || '--');
   const bemv = ((separator) => (element, modifier, value) => bem(element, modifier) + separator + value)(separators.value || '-');
 
-  const build = (block, element, modifiers, mixins) => {
+  const generate = (block, element, modifiers, mixins) => {
     element = be(block, element);
     let className = element;
 
@@ -56,5 +56,5 @@ module.exports = (opts) => {
     return className;
   }
 
-  return { build, helpers: { be, bem, bemv } };
+  return { generate, helpers: { be, bem, bemv } };
 };

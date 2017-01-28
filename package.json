@@ -1,14 +1,14 @@
 {
-  "name": "jsx-bem",
+  "name": "bemed",
   "version": "0.0.1",
-  "description": "BEM class name generator for babel-plugin-transform-jsx-bem",
+  "description": "BEM class name generator for postcss-bemed and babel-plugin-transform-jsx-bemed",
   "main": "index.js",
   "scripts": {
     "test": "tap test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ximik/jsx-bem.git"
+    "url": "git+https://github.com/Ximik/bemed.git"
   },
   "keywords": [
     "bem",
@@ -18,9 +18,9 @@
   "author": "Alex Tsokurov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Ximik/jsx-bem/issues"
+    "url": "https://github.com/Ximik/bemed/issues"
   },
-  "homepage": "https://github.com/Ximik/jsx-bem#readme",
+  "homepage": "https://github.com/Ximik/bemed#readme",
   "devDependencies": {
     "tap": "^9.0.3"
   }

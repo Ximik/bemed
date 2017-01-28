@@ -1,12 +1,12 @@
 "use strict"
 
 const tap = require('tap'),
-      build = require('../index')({
+      generate = require('../index')({
         separators: {
           element: '____',
           modifier: '----',
           value: '-_-'
         }
-      }).build;
+      }).generate;
 
-tap.equal(build('block', 'element', { 'mod': 'val' }), 'block____element block____element----mod block____element----mod-_-val');
+tap.equal(generate('block', 'element', { 'mod': 'val' }), 'block____element block____element----mod block____element----mod-_-val');
